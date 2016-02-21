@@ -13,9 +13,4 @@ public class NextEvent<T> implements Event<T> {
     public void perform(Subscriber<? super T> subscriber) {
         subscriber.onNext(item);
     }
-
-    @Override
-    public void describe() {
-
-    }
 }

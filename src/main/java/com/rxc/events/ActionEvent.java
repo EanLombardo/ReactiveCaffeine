@@ -14,9 +14,4 @@ public class ActionEvent<T> implements Event<T> {
     public void perform(Subscriber<? super T> subscriber) {
         action.call(subscriber);
     }
-
-    @Override
-    public void describe() {
-
-    }
 }

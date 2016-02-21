@@ -1,8 +1,6 @@
 package com.rxc;
 
-import org.hamcrest.Matcher;
 import org.junit.Test;
-import org.junit.matchers.JUnitMatchers;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
@@ -15,11 +13,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.Assert.*;
 
-public class ObservableEventChainBuilderTest {
+public class FluentObservableTest {
 
     @Test
-    public void testEventChain_completion() throws Exception {
-        final Observable<String> testObj = new ObservableEventChainBuilder<String>()
+    public void completion() throws Exception {
+        final Observable<String> testObj =
+                FluentObservable.thatStarts(String.class)
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());
 
@@ -33,8 +32,8 @@ public class ObservableEventChainBuilderTest {
     }
 
     @Test
-    public void testEventChain_noCompletion() throws Exception {
-        final Observable<String> testObj = new ObservableEventChainBuilder<String>()
+    public void noCompletion() throws Exception {
+        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
                 .thenNeverCompletes()
                 .observeOn(Schedulers.newThread());
 
@@ -49,8 +48,8 @@ public class ObservableEventChainBuilderTest {
     }
 
     @Test
-    public void testEventChain_emission() throws Exception {
-        final Observable<String> testObj = new ObservableEventChainBuilder<String>()
+    public void emission() throws Exception {
+        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
                 .thenEmits("Hello")
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());
@@ -64,8 +63,8 @@ public class ObservableEventChainBuilderTest {
     }
 
     @Test
-    public void testEventChain_error() throws Exception {
-        final Observable<String> testObj = new ObservableEventChainBuilder<String>()
+    public void error() throws Exception {
+        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
                 .thenErrors(new IOException())
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());
@@ -79,10 +78,10 @@ public class ObservableEventChainBuilderTest {
     }
 
     @Test
-    public void testEventChain_action() throws Exception {
+    public void action() throws Exception {
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
 
-        final Observable<String> testObj = new ObservableEventChainBuilder<String>()
+        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
                 .then(new Action1<Subscriber<? super String>>() {
                     @Override
                     public void call(Subscriber<? super String> subscriber) {
@@ -101,8 +100,8 @@ public class ObservableEventChainBuilderTest {
     }
 
     @Test
-    public void testEventChain_wait() throws Exception {
-        final Observable<String> testObj = new ObservableEventChainBuilder<String>()
+    public void test_wait() throws Exception {
+        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
                 .thenWaits(1000)
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());

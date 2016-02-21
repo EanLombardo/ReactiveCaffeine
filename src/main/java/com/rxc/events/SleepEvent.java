@@ -17,9 +17,4 @@ public class SleepEvent<T> implements Event<T> {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public void describe() {
-
-    }
 }

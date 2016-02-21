@@ -13,9 +13,4 @@ public class ErrorEvent<T> implements Event<T> {
     public void perform(Subscriber<? super T> subscriber) {
         subscriber.onError(error);
     }
-
-    @Override
-    public void describe() {
-
-    }
 }
