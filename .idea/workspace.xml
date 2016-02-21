@@ -1169,7 +1169,7 @@
       <updated>1455682398783</updated>
       <workItem from="1455682402373" duration="1180000" />
       <workItem from="1455683603071" duration="2258000" />
-      <workItem from="1455685894677" duration="10517000" />
+      <workItem from="1455685894677" duration="10538000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit, Implemented ObservableEventChainBuilder">
       <created>1455686022492</created>
@@ -1183,7 +1183,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456029415625</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Javadoc for FluentObservable">
+      <created>1456031266439</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1456031266439</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1204,7 +1210,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13955000" />
+    <option name="totallyTimeSpent" value="13976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1602" height="900" extended-state="6" />
@@ -1272,7 +1278,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit, Implemented ObservableEventChainBuilder" />
     <MESSAGE value="Refactored ObservableEventChainBuilder into FluentObservable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored ObservableEventChainBuilder into FluentObservable" />
+    <MESSAGE value="Added Javadoc for FluentObservable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Javadoc for FluentObservable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1351,12 +1358,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1456030533600" expanded="true" signature="59:96359" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="98:191" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93716" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93734" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93747" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93762" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="59:98424" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="98:191" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95781" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95799" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95812" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95827" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1416,12 +1423,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1456030533600" expanded="true" signature="59:96359" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="98:191" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93716" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93734" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93747" placeholder="..." />
-            <marker date="1456030533600" expanded="true" signature="93699:93762" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="59:98424" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="98:191" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95781" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95799" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95812" placeholder="..." />
+            <marker date="1456031248424" expanded="true" signature="95764:95827" placeholder="..." />
           </folding>
         </state>
       </provider>
