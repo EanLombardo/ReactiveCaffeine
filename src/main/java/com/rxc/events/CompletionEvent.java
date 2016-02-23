@@ -7,4 +7,9 @@ public class CompletionEvent<T> implements Event<T>{
     public void perform(Subscriber<? super T> subscriber) {
         subscriber.onCompleted();
     }
+
+    @Override
+    public String toString() {
+        return "onCompleted()";
+    }
 }

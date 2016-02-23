@@ -7,4 +7,9 @@ public class StartEvent<T> implements Event<T> {
     public void perform(Subscriber<? super T> subscriber) {
         subscriber.onStart();
     }
+
+    @Override
+    public String toString() {
+        return "onStart()";
+    }
 }
