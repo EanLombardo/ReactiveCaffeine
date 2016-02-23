@@ -9,7 +9,7 @@ buildscript {
 }
 
 group 'com.rxc'
-version '0.0.3'
+version '0.0.4'
 
 task wrapper(type: Wrapper) {
   gradleVersion = '2.5'
@@ -51,9 +51,9 @@ bintray {
         publicDownloadNumbers = true
         publications = ['MyPublication']
         version {
-            name = '0.0.3'
-            desc = 'Gradle Bintray Plugin 1.0 final'
-            vcsTag = '0.0.3'
+            name = '0.0.4'
+            desc = ''
+            vcsTag = '0.0.4'
         }
     }
 }
@@ -66,7 +66,7 @@ publishing {
             artifact javadocJar
             groupId 'reactive-caffeine'
             artifactId 'reactive-caffeine'
-            version '0.0.3'
+            version '0.0.4'
         }
     }
 }

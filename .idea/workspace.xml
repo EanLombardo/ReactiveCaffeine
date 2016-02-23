@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40ae28e7-e929-4b5e-874a-c0a3594592ef" name="Default" comment="Added build rules for Javadoc and Source jars">
+    <list default="true" id="40ae28e7-e929-4b5e-874a-c0a3594592ef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/NextEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/NextEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/StartEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/StartEvent.java" />
     </list>
     <ignored path="ReactiveCaffiene.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -144,11 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.6335878">
+              <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -206,10 +202,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartEvent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StartEvent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/StartEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45801526">
+            <state vertical-scroll-proportion="0.0">
               <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding>
                 <element signature="e#251#252#0" expanded="true" />
@@ -592,11 +588,11 @@
         <option value="$PROJECT_DIR$/src/test/java/com/rxc/FluentObservableTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/FluentObservable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/FluentObservableBuilder.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/StartEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/NextEvent.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -1322,7 +1318,7 @@
       <updated>1455682398783</updated>
       <workItem from="1455682402373" duration="1180000" />
       <workItem from="1455683603071" duration="2258000" />
-      <workItem from="1455685894677" duration="16248000" />
+      <workItem from="1455685894677" duration="16459000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit, Implemented ObservableEventChainBuilder">
       <created>1455686022492</created>
@@ -1348,7 +1344,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456031289009</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added getters for Events">
+      <created>1456250359964</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1456250359964</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1369,7 +1371,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19686000" />
+    <option name="totallyTimeSpent" value="19897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1602" height="900" extended-state="6" />
@@ -1439,7 +1441,8 @@
     <MESSAGE value="Refactored ObservableEventChainBuilder into FluentObservable" />
     <MESSAGE value="Added Javadoc for FluentObservable" />
     <MESSAGE value="Added build rules for Javadoc and Source jars" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added build rules for Javadoc and Source jars" />
+    <MESSAGE value="Added getters for Events" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added getters for Events" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1517,12 +1520,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1456249219118" expanded="true" signature="59:107416" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="98:191" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104773" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104791" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104804" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104819" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="59:107742" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="98:191" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105099" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105117" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105130" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105145" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1582,12 +1585,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1456249219118" expanded="true" signature="59:107416" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="98:191" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104773" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104791" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104804" placeholder="..." />
-            <marker date="1456249219118" expanded="true" signature="104756:104819" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="59:107742" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="98:191" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105099" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105117" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105130" placeholder="..." />
+            <marker date="1456250543757" expanded="true" signature="105082:105145" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1681,14 +1684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/rxc/FluentObservableTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1756,12 +1751,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/StartEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45801526">
+        <state vertical-scroll-proportion="0.0">
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
             <element signature="e#251#252#0" expanded="true" />
             <element signature="e#285#286#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6335878">
+          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
