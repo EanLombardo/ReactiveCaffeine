@@ -4,14 +4,7 @@
     <list default="true" id="978d9612-fb7d-4448-a22c-1ea573fd8660" name="Default" comment="Updated gradle wrapper">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/FluentObservable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/StartEvent.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/FluentObservableBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/ObservableBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/rxc/FluentObservableTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/rxc/ObservableBuilderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReactiveCaffeine.iml" afterPath="$PROJECT_DIR$/ReactiveCaffeine.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" />
@@ -1498,7 +1491,7 @@
       <workItem from="1456363002972" duration="59000" />
       <workItem from="1456363150301" duration="922000" />
       <workItem from="1456367543121" duration="156000" />
-      <workItem from="1456368240226" duration="2644000" />
+      <workItem from="1456368240226" duration="2768000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit, Implemented ObservableEventChainBuilder">
       <created>1455686022492</created>
@@ -1542,7 +1535,19 @@
       <option name="project" value="LOCAL" />
       <updated>1456370880510</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed idea settings after botched rename">
+      <created>1456370911370</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1456370911370</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Refactored FluentObservable into ObservableBuilder, dropped StartEvent logic">
+      <created>1456371005320</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1456371005320</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1578,7 +1583,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40530000" />
+    <option name="totallyTimeSpent" value="40654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1602" height="900" extended-state="6" />
@@ -1651,7 +1656,9 @@
     <MESSAGE value="Added getters for Events" />
     <MESSAGE value="Released 0.0.4" />
     <MESSAGE value="Updated gradle wrapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated gradle wrapper" />
+    <MESSAGE value="Fixed idea settings after botched rename" />
+    <MESSAGE value="Refactored FluentObservable into ObservableBuilder, dropped StartEvent logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored FluentObservable into ObservableBuilder, dropped StartEvent logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

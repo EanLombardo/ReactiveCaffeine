@@ -5,7 +5,7 @@ import rx.Subscriber;
 public class NextEvent<T> implements Event<T> {
     private final T item;
 
-    public NextEvent(T item) {
+    public NextEvent(final T item) {
         this.item = item;
     }
 
@@ -14,7 +14,7 @@ public class NextEvent<T> implements Event<T> {
     }
 
     @Override
-    public void perform(Subscriber<? super T> subscriber) {
+    public void perform(final Subscriber<? super T> subscriber) {
         subscriber.onNext(item);
     }
 

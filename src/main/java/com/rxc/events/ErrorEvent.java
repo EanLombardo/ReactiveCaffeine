@@ -5,7 +5,7 @@ import rx.Subscriber;
 public class ErrorEvent<T> implements Event<T> {
     private final Throwable error;
 
-    public ErrorEvent(Throwable error) {
+    public ErrorEvent(final Throwable error) {
         this.error = error;
     }
 
@@ -14,7 +14,7 @@ public class ErrorEvent<T> implements Event<T> {
     }
 
     @Override
-    public void perform(Subscriber<? super T> subscriber) {
+    public void perform(final Subscriber<? super T> subscriber) {
         subscriber.onError(error);
     }
 
