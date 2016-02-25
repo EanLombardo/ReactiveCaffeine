@@ -6,11 +6,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/NextEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/NextEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/SleepEvent.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/events/SleepEvent.java" />
     </list>
     <ignored path="ReactiveCaffeine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1491,7 +1486,7 @@
       <workItem from="1456363002972" duration="59000" />
       <workItem from="1456363150301" duration="922000" />
       <workItem from="1456367543121" duration="156000" />
-      <workItem from="1456368240226" duration="2768000" />
+      <workItem from="1456368240226" duration="2804000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit, Implemented ObservableEventChainBuilder">
       <created>1455686022492</created>
@@ -1547,7 +1542,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456371005320</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Code cleanup">
+      <created>1456371039315</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1456371039315</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1583,7 +1584,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40654000" />
+    <option name="totallyTimeSpent" value="40690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1602" height="900" extended-state="6" />
@@ -1658,7 +1659,8 @@
     <MESSAGE value="Updated gradle wrapper" />
     <MESSAGE value="Fixed idea settings after botched rename" />
     <MESSAGE value="Refactored FluentObservable into ObservableBuilder, dropped StartEvent logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored FluentObservable into ObservableBuilder, dropped StartEvent logic" />
+    <MESSAGE value="Code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
