@@ -8,8 +8,10 @@ buildscript {
     }
 }
 
+def VERSION_CODE = '0.0.5'
+
 group 'com.rxc'
-version '0.0.4'
+version VERSION_CODE
 
 task wrapper(type: Wrapper) {
   gradleVersion = '2.5'
@@ -52,9 +54,9 @@ bintray {
         publicDownloadNumbers = true
         publications = ['MyPublication']
         version {
-            name = '0.0.4'
+            name = VERSION_CODE
             desc = ''
-            vcsTag = '0.0.4'
+            vcsTag = VERSION_CODE
         }
     }
 }
@@ -67,7 +69,7 @@ publishing {
             artifact javadocJar
             groupId 'reactive-caffeine'
             artifactId 'reactive-caffeine'
-            version '0.0.4'
+            version VERSION_CODE
         }
     }
 }
