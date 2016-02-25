@@ -13,12 +13,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.Assert.*;
 
-public class FluentObservableTest {
+public class ObservableBuilderTest {
 
     @Test
     public void completion() throws Exception {
-        final Observable<String> testObj =
-                FluentObservable.thatStarts(String.class)
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());
 
@@ -33,7 +32,7 @@ public class FluentObservableTest {
 
     @Test
     public void noCompletion() throws Exception {
-        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
+        final Observable<String> testObj =new ObservableBuilder<String>()
                 .thenNeverCompletes()
                 .observeOn(Schedulers.newThread());
 
@@ -49,7 +48,7 @@ public class FluentObservableTest {
 
     @Test
     public void emission() throws Exception {
-        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .thenEmits("Hello")
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());
@@ -64,7 +63,7 @@ public class FluentObservableTest {
 
     @Test
     public void error() throws Exception {
-        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .thenErrors(new IOException())
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());
@@ -81,10 +80,10 @@ public class FluentObservableTest {
     public void action() throws Exception {
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
 
-        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .then(new Action1<Subscriber<? super String>>() {
                     @Override
-                    public void call(Subscriber<? super String> subscriber) {
+                    public void call(final Subscriber<? super String> subscriber) {
                         atomicBoolean.set(true);
                     }
                 })
@@ -101,17 +100,17 @@ public class FluentObservableTest {
 
     @Test
     public void test_wait() throws Exception {
-        final Observable<String> testObj = FluentObservable.thatStarts(String.class)
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .thenWaits(1000)
                 .thenCompletes()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<String>();
 
-        long startMills = System.currentTimeMillis();
+        final long startMills = System.currentTimeMillis();
         testObj.subscribe(subscriber);
         subscriber.awaitTerminalEvent();
-        long endMills = System.currentTimeMillis();
+        final long endMills = System.currentTimeMillis();
 
         assertTrue(endMills - startMills > 1000);
     }

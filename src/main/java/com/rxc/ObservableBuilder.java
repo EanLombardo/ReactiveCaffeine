@@ -12,24 +12,15 @@ import java.util.List;
  * A builder to build FluentObservables
  * @param <T> The class for the Observable
  */
-public class FluentObservableBuilder<T> {
+public class ObservableBuilder<T> {
     private final List<Event<T>> events = new LinkedList<Event<T>>();
-
-    FluentObservableBuilder(){
-
-    }
-
-    FluentObservableBuilder<T> thatStarts(){
-        events.add(new StartEvent<T>());
-        return this;
-    }
 
     /**
      * Adds a new event to the observable that simply emits the item given
      * @param item The item to emit
      * @return The builder to build the rest of the observable with
      */
-    public FluentObservableBuilder<T> thenEmits(final T item){
+    public ObservableBuilder<T> thenEmits(final T item){
         events.add(new NextEvent<T>(item));
         return this;
     }
@@ -39,7 +30,7 @@ public class FluentObservableBuilder<T> {
      * @param error The error
      * @return The builder to build the rest of the observable with
      */
-    public FluentObservableBuilder<T> thenErrors(final Throwable error){
+    public ObservableBuilder<T> thenErrors(final Throwable error){
         events.add(new ErrorEvent<T>(error));
         return this;
     }
@@ -49,7 +40,7 @@ public class FluentObservableBuilder<T> {
      * @param mills How long to delay in milliseconds
      * @return The builder to build the rest of the observable with
      */
-    public FluentObservableBuilder<T> thenWaits(final long mills){
+    public ObservableBuilder<T> thenWaits(final long mills){
         events.add(new SleepEvent<T>(mills));
         return this;
     }
@@ -59,7 +50,7 @@ public class FluentObservableBuilder<T> {
      * @param action The action to be performed
      * @return The builder to build the rest of the observable with
      */
-    public FluentObservableBuilder<T> then(final Action1<Subscriber<? super T>> action){
+    public ObservableBuilder<T> then(final Action1<Subscriber<? super T>> action){
         events.add(new ActionEvent<T>(action));
         return this;
     }
@@ -84,8 +75,8 @@ public class FluentObservableBuilder<T> {
     private Observable<T> build(){
         return Observable.create(new Observable.OnSubscribe<T>() {
             @Override
-            public void call(Subscriber<? super T> subscriber) {
-                for(Event<T> event : events){
+            public void call(final Subscriber<? super T> subscriber) {
+                for(final Event<T> event : events){
                     event.perform(subscriber);
                 }
             }
