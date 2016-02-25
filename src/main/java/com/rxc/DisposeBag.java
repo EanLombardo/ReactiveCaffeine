@@ -1,6 +1,8 @@
 package com.rxc;
 
 import rx.Subscription;
+import rx.exceptions.CompositeException;
+import rx.exceptions.Exceptions;
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
@@ -56,21 +58,31 @@ public class DisposeBag {
     /**
      * Unsubscribes all added subscribers that are still subscribed and haven't been garbage collected
      * The DisposeBag is still usable after this method is called
+     *
+     * An attempt to unsubscribe is made on every subscription in the DisposeBag, even if a subscription throws
+     * If any subscriptions do throw they are removed from the dispose bag and a Composite exception is thrown
+     * that contains all throws at the end of the disposal process
      */
     public void disposeAll(){
+        final List<Throwable> errors = new LinkedList<Throwable>();
         synchronized (referenceQueue) {
             for (final WeakReference<Subscription> ref : subscriptions) {
-                final Subscription subscription = ref.get();
+                try {
+                    final Subscription subscription = ref.get();
 
-                if (subscription != null && !subscription.isUnsubscribed()) {
-                    subscription.unsubscribe();
+                    if (subscription != null && !subscription.isUnsubscribed()) {
+                        subscription.unsubscribe();
+                    }
+                    ref.clear();
+                } catch (final Throwable t){
+                    errors.add(t);
                 }
-
-                ref.clear();
             }
 
             cleanupReferences();
             subscriptions.clear();
+
+            Exceptions.throwIfAny(errors);
         }
     }
 

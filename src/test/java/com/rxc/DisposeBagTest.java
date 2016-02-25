@@ -15,7 +15,9 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.powermock.api.mockito.PowerMockito.doThrow;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @PrepareForTest({Subscriber.class})
@@ -98,11 +100,30 @@ public class DisposeBagTest{
     @Test
     public void unsubscribeNotCalled_ifAlreadyUnsubscribed(){
         final DisposeBag disposeBag = new DisposeBag();
-        when(mockSubscriber.isUnsubscribed()).thenReturn(false);
+        when(mockSubscriber.isUnsubscribed()).thenReturn(true);
 
         disposeBag.add(mockSubscriber);
 
+        disposeBag.disposeAll();
+
         verify(mockSubscriber,never()).unsubscribe();
+    }
+
+    @Test
+    public void unsubcribesAll_evenWithExceptions(){
+        final DisposeBag disposeBag = new DisposeBag();
+        when(mockSubscriber.isUnsubscribed()).thenReturn(false);
+        doThrow(new RuntimeException()).when(mockSubscriber).unsubscribe();
+
+        disposeBag.add(mockSubscriber);
+        disposeBag.add(mockSubscriber);
+        disposeBag.add(mockSubscriber);
+
+        try {
+            disposeBag.disposeAll();
+        } catch (final Exception ignore){}
+
+        verify(mockSubscriber,times(3)).unsubscribe();
     }
 
 }
