@@ -56,7 +56,7 @@ public final class UnsafeObservableBuilder<T> {
     }
 
     /**
-     * Builds the final FluentObservable, the last action of the Observable will be to notify it's subscribers that it completed
+     * Adds a new event that notifies all subscribers that the Observable has completed
      * All further events will still be performed on the subscriber even though it's terminated
      * @return The Observable that will emit the defined events when subscribed to
      */

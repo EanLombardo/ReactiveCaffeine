@@ -15,17 +15,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
-public class UnsafeObservableBuilderTest {
+public class ObservableBuilderTest {
 
     @Test
     public void completion() throws Exception {
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .complete()
-                .build()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<>();
-        testObj.unsafeSubscribe(subscriber);
+        testObj.subscribe(subscriber);
 
         subscriber.awaitTerminalEvent();
 
@@ -35,13 +34,13 @@ public class UnsafeObservableBuilderTest {
 
     @Test
     public void empty() throws Exception {
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .build()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<>();
 
-        testObj.unsafeSubscribe(subscriber);
+        testObj.subscribe(subscriber);
         Thread.sleep(1000);
 
         subscriber.assertNoTerminalEvent();
@@ -51,31 +50,14 @@ public class UnsafeObservableBuilderTest {
 
     @Test
     public void emission() throws Exception {
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .emit("Hello")
                 .complete()
-                .build()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<>();
 
-        testObj.unsafeSubscribe(subscriber);
-        subscriber.awaitTerminalEvent();
-
-        subscriber.assertReceivedOnNext(Collections.singletonList("Hello"));
-    }
-
-    @Test
-    public void notification() throws Exception {
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
-                .notify(Notification.createOnNext("Hello"))
-                .complete()
-                .build()
-                .observeOn(Schedulers.newThread());
-
-        final TestSubscriber<String> subscriber = new TestSubscriber<>();
-
-        testObj.unsafeSubscribe(subscriber);
+        testObj.subscribe(subscriber);
         subscriber.awaitTerminalEvent();
 
         subscriber.assertReceivedOnNext(Collections.singletonList("Hello"));
@@ -83,14 +65,13 @@ public class UnsafeObservableBuilderTest {
 
     @Test
     public void error() throws Exception {
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .error(new IOException())
-                .build()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<>();
 
-        testObj.unsafeSubscribe(subscriber);
+        testObj.subscribe(subscriber);
         subscriber.awaitTerminalEvent();
 
         subscriber.assertError(IOException.class);
@@ -100,7 +81,7 @@ public class UnsafeObservableBuilderTest {
     public void action() throws Exception {
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
 
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .perform(new Action1<Subscriber<? super String>>() {
                     @Override
                     public void call(final Subscriber<? super String> subscriber) {
@@ -108,12 +89,11 @@ public class UnsafeObservableBuilderTest {
                     }
                 })
                 .complete()
-                .build()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<>();
 
-        testObj.unsafeSubscribe(subscriber);
+        testObj.subscribe(subscriber);
         subscriber.awaitTerminalEvent();
 
         assertTrue(atomicBoolean.get());
@@ -123,7 +103,7 @@ public class UnsafeObservableBuilderTest {
     public void runnable() throws Exception {
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
 
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .perform(new Runnable() {
                     @Override
                     public void run() {
@@ -131,12 +111,11 @@ public class UnsafeObservableBuilderTest {
                     }
                 })
                 .complete()
-                .build()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<>();
 
-        testObj.unsafeSubscribe(subscriber);
+        testObj.subscribe(subscriber);
         subscriber.awaitTerminalEvent();
 
         assertTrue(atomicBoolean.get());
@@ -144,44 +123,18 @@ public class UnsafeObservableBuilderTest {
 
     @Test
     public void test_wait() throws Exception {
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
+        final Observable<String> testObj = new ObservableBuilder<String>()
                 .sleep(1000)
                 .complete()
-                .build()
                 .observeOn(Schedulers.newThread());
 
         final TestSubscriber<String> subscriber = new TestSubscriber<>();
 
         final long startMills = System.currentTimeMillis();
-        testObj.unsafeSubscribe(subscriber);
+        testObj.subscribe(subscriber);
         subscriber.awaitTerminalEvent();
         final long endMills = System.currentTimeMillis();
 
         assertTrue(endMills - startMills >= 1000);
-    }
-
-    @Test
-    public void test_unsafeness(){
-        final Observable<String> testObj = new UnsafeObservableBuilder<String>()
-                .complete()
-                .sleep(1000)
-                .complete()
-                .error(new Exception())
-                .emit("hi")
-                .build();
-
-        final TestSubscriber<String> subscriber = new TestSubscriber<>();
-        testObj.unsafeSubscribe(subscriber);
-
-        subscriber.assertValue("hi");
-        subscriber.assertError(Exception.class);
-
-        try {
-            subscriber.assertCompleted();
-            fail("Did not complete multiple times");
-        } catch (final AssertionError error){
-            assertThat(error.getLocalizedMessage(),containsString("multiple times"));
-        }
-
     }
 }
