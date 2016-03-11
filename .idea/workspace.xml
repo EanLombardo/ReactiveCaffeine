@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="978d9612-fb7d-4448-a22c-1ea573fd8660" name="Default" comment="Added exception handling in DisposeBag so that it's safe to use in try catch scenarios">
+    <list default="true" id="978d9612-fb7d-4448-a22c-1ea573fd8660" name="Default" comment="Finalized api schema for observable builders, changed builders to use actions, removed Event api, and migrated to Java 7, and before you ask, yes this commit is too big">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReactiveCaffiene.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/UnsafeObservableBuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/rxc/UnsafeObservableBuilderTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ReactiveCaffeine.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/ObservableBuilder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/Event.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/NextEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/events/SleepEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/rxc/ObservableBuilderTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java" afterPath="$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java" />
     </list>
     <ignored path="ReactiveCaffeine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,18 +50,7 @@
           <activation />
         </task>
         <projects_view>
-          <tree_state>
-            <PATH>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="ReactiveCaffiene" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
-              </PATH_ELEMENT>
-            </PATH>
-          </tree_state>
+          <tree_state />
         </projects_view>
       </state>
     </system>
@@ -57,80 +60,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DisposeBagTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DisposeBagTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6713996">
-              <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="115" selection-end-column="58" />
+              <folding>
+                <element signature="e#901#915#0" expanded="false" />
+                <element signature="e#1439#1453#0" expanded="false" />
+                <element signature="e#1940#1954#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Subscriber.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Subscriber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="e#1799#1800#0" expanded="false" />
+                <element signature="e#1832#1833#0" expanded="false" />
+                <element signature="e#2202#2203#0" expanded="false" />
+                <element signature="e#2240#2241#0" expanded="false" />
+                <element signature="e#3683#3684#0" expanded="false" />
+                <element signature="e#3719#3720#0" expanded="false" />
+                <element signature="e#3772#3773#0" expanded="false" />
+                <element signature="e#3815#3816#0" expanded="false" />
+                <element signature="e#4100#4101#0" expanded="false" />
+                <element signature="e#4153#4154#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnsafeObservableBuilderTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/rxc/UnsafeObservableBuilderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="156" column="69" selection-start-line="156" selection-start-column="69" selection-end-line="156" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#901#915#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActionEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java">
+      <file leaf-file-name="ReactiveCaffiene.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ReactiveCaffiene.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
-              <folding>
-                <element signature="e#253#254#0" expanded="true" />
-                <element signature="e#289#290#0" expanded="true" />
-              </folding>
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompletionEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java">
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-              <folding>
-                <element signature="e#179#180#0" expanded="true" />
-                <element signature="e#219#220#0" expanded="true" />
-              </folding>
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObservableBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/ObservableBuilder.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="57" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2799#2800#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObservableBuilderTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/rxc/ObservableBuilderTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
-              <folding>
-                <element signature="e#2529#2775#0" expanded="true" />
-                <element signature="e#2774#2775#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SleepEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/SleepEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-              <folding>
-                <element signature="e#176#177#0" expanded="true" />
-                <element signature="e#218#219#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.69776875">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,48 +142,281 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="66" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1213#1242#0" expanded="true" />
-                <element signature="e#1329#1343#0" expanded="true" />
-                <element signature="e#2729#2740#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Exceptions.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/exceptions/Exceptions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="162" column="23" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
+              <caret line="27" column="83" selection-start-line="27" selection-start-column="83" selection-end-line="27" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ErrorEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java">
+      <file leaf-file-name="UnsafeObservableBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/UnsafeObservableBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+              <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Observable.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Observable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7704" column="51" selection-start-line="7704" selection-start-column="51" selection-end-line="7704" selection-end-column="51" />
               <folding>
-                <element signature="e#178#179#0" expanded="true" />
-                <element signature="e#212#213#0" expanded="true" />
-                <element signature="e#246#247#0" expanded="true" />
-                <element signature="e#274#275#0" expanded="true" />
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2147#2148#0" expanded="false" />
+                <element signature="e#2183#2184#0" expanded="false" />
+                <element signature="e#3950#3951#0" expanded="false" />
+                <element signature="e#4008#4009#0" expanded="false" />
+                <element signature="e#10940#10941#0" expanded="false" />
+                <element signature="e#11008#11009#0" expanded="false" />
+                <element signature="e#53820#53821#0" expanded="false" />
+                <element signature="e#53876#53877#0" expanded="false" />
+                <element signature="e#54873#54874#0" expanded="false" />
+                <element signature="e#54932#54933#0" expanded="false" />
+                <element signature="e#55963#55964#0" expanded="false" />
+                <element signature="e#56019#56020#0" expanded="false" />
+                <element signature="e#62422#62423#0" expanded="false" />
+                <element signature="e#62471#62472#0" expanded="false" />
+                <element signature="e#69049#69050#0" expanded="false" />
+                <element signature="e#69113#69114#0" expanded="false" />
+                <element signature="e#69994#69995#0" expanded="false" />
+                <element signature="e#70044#70045#0" expanded="false" />
+                <element signature="e#70975#70976#0" expanded="false" />
+                <element signature="e#71029#71030#0" expanded="false" />
+                <element signature="e#72012#72013#0" expanded="false" />
+                <element signature="e#72070#72071#0" expanded="false" />
+                <element signature="e#97624#97625#0" expanded="false" />
+                <element signature="e#97669#97670#0" expanded="false" />
+                <element signature="e#119467#119468#0" expanded="false" />
+                <element signature="e#119500#119501#0" expanded="false" />
+                <element signature="e#120367#120368#0" expanded="false" />
+                <element signature="e#120416#120417#0" expanded="false" />
+                <element signature="e#161817#161818#0" expanded="false" />
+                <element signature="e#161853#161854#0" expanded="false" />
+                <element signature="e#162459#162460#0" expanded="false" />
+                <element signature="e#162522#162523#0" expanded="false" />
+                <element signature="e#165520#165521#0" expanded="false" />
+                <element signature="e#165563#165564#0" expanded="false" />
+                <element signature="e#181953#181954#0" expanded="false" />
+                <element signature="e#181996#181997#0" expanded="false" />
+                <element signature="e#185586#185587#0" expanded="false" />
+                <element signature="e#185636#185637#0" expanded="false" />
+                <element signature="e#187661#187662#0" expanded="false" />
+                <element signature="e#187725#187726#0" expanded="false" />
+                <element signature="e#188684#188685#0" expanded="false" />
+                <element signature="e#188742#188743#0" expanded="false" />
+                <element signature="e#192970#192971#0" expanded="false" />
+                <element signature="e#193009#193010#0" expanded="false" />
+                <element signature="e#194086#194087#0" expanded="false" />
+                <element signature="e#194174#194175#0" expanded="false" />
+                <element signature="e#195134#195135#0" expanded="false" />
+                <element signature="e#195188#195189#0" expanded="false" />
+                <element signature="e#195429#195430#0" expanded="false" />
+                <element signature="e#195477#195478#0" expanded="false" />
+                <element signature="e#196512#196513#0" expanded="false" />
+                <element signature="e#196571#196572#0" expanded="false" />
+                <element signature="e#196794#196795#0" expanded="false" />
+                <element signature="e#196842#196843#0" expanded="false" />
+                <element signature="e#209677#209678#0" expanded="false" />
+                <element signature="e#209744#209745#0" expanded="false" />
+                <element signature="e#215300#215301#0" expanded="false" />
+                <element signature="e#215361#215362#0" expanded="false" />
+                <element signature="e#216096#216097#0" expanded="false" />
+                <element signature="e#216156#216157#0" expanded="false" />
+                <element signature="e#218034#218035#0" expanded="false" />
+                <element signature="e#218106#218107#0" expanded="false" />
+                <element signature="e#220239#220240#0" expanded="false" />
+                <element signature="e#220289#220290#0" expanded="false" />
+                <element signature="e#221476#221477#0" expanded="false" />
+                <element signature="e#221561#221562#0" expanded="false" />
+                <element signature="e#221637#221638#0" expanded="false" />
+                <element signature="e#221719#221720#0" expanded="false" />
+                <element signature="e#221786#221787#0" expanded="false" />
+                <element signature="e#221867#221868#0" expanded="false" />
+                <element signature="e#223803#223804#0" expanded="false" />
+                <element signature="e#223850#223851#0" expanded="false" />
+                <element signature="e#225098#225099#0" expanded="false" />
+                <element signature="e#225147#225148#0" expanded="false" />
+                <element signature="e#228524#228525#0" expanded="false" />
+                <element signature="e#228574#228575#0" expanded="false" />
+                <element signature="e#228650#228651#0" expanded="false" />
+                <element signature="e#228700#228701#0" expanded="false" />
+                <element signature="e#231191#231192#0" expanded="false" />
+                <element signature="e#231251#231252#0" expanded="false" />
+                <element signature="e#235711#235712#0" expanded="false" />
+                <element signature="e#235770#235771#0" expanded="false" />
+                <element signature="e#236631#236632#0" expanded="false" />
+                <element signature="e#236670#236671#0" expanded="false" />
+                <element signature="e#237748#237749#0" expanded="false" />
+                <element signature="e#237800#237801#0" expanded="false" />
+                <element signature="e#238800#238801#0" expanded="false" />
+                <element signature="e#238860#238861#0" expanded="false" />
+                <element signature="e#254695#254696#0" expanded="false" />
+                <element signature="e#254728#254729#0" expanded="false" />
+                <element signature="e#263121#263122#0" expanded="false" />
+                <element signature="e#263187#263188#0" expanded="false" />
+                <element signature="e#264027#264028#0" expanded="false" />
+                <element signature="e#264099#264100#0" expanded="false" />
+                <element signature="e#266826#266827#0" expanded="false" />
+                <element signature="e#266869#266870#0" expanded="false" />
+                <element signature="e#269028#269029#0" expanded="false" />
+                <element signature="e#269092#269093#0" expanded="false" />
+                <element signature="e#271678#271679#0" expanded="false" />
+                <element signature="e#271712#271713#0" expanded="false" />
+                <element signature="e#272620#272621#0" expanded="false" />
+                <element signature="e#272676#272677#0" expanded="false" />
+                <element signature="e#273844#273845#0" expanded="false" />
+                <element signature="e#273906#273907#0" expanded="false" />
+                <element signature="e#274832#274833#0" expanded="false" />
+                <element signature="e#274870#274871#0" expanded="false" />
+                <element signature="e#277035#277036#0" expanded="false" />
+                <element signature="e#277093#277094#0" expanded="false" />
+                <element signature="e#277927#277928#0" expanded="false" />
+                <element signature="e#277999#278000#0" expanded="false" />
+                <element signature="e#283020#283021#0" expanded="false" />
+                <element signature="e#283089#283090#0" expanded="false" />
+                <element signature="e#287412#287413#0" expanded="false" />
+                <element signature="e#287490#287491#0" expanded="false" />
+                <element signature="e#288791#288792#0" expanded="false" />
+                <element signature="e#288862#288863#0" expanded="false" />
+                <element signature="e#298140#298141#0" expanded="false" />
+                <element signature="e#298191#298192#0" expanded="false" />
+                <element signature="e#304792#304793#0" expanded="false" />
+                <element signature="e#304846#304847#0" expanded="false" />
+                <element signature="e#305665#305666#0" expanded="false" />
+                <element signature="e#305730#305731#0" expanded="false" />
+                <element signature="e#306762#306763#0" expanded="false" />
+                <element signature="e#306823#306824#0" expanded="false" />
+                <element signature="e#309982#309983#0" expanded="false" />
+                <element signature="e#310041#310042#0" expanded="false" />
+                <element signature="e#312086#312087#0" expanded="false" />
+                <element signature="e#312145#312146#0" expanded="false" />
+                <element signature="e#313685#313686#0" expanded="false" />
+                <element signature="e#313735#313736#0" expanded="false" />
+                <element signature="e#315528#315529#0" expanded="false" />
+                <element signature="e#315591#315592#0" expanded="false" />
+                <element signature="e#317691#317692#0" expanded="false" />
+                <element signature="e#317764#317765#0" expanded="false" />
+                <element signature="e#322855#322856#0" expanded="false" />
+                <element signature="e#322951#322952#0" expanded="false" />
+                <element signature="e#325150#325151#0" expanded="false" />
+                <element signature="e#325223#325224#0" expanded="false" />
+                <element signature="e#325357#325358#0" expanded="false" />
+                <element signature="e#325433#325434#0" expanded="false" />
+                <element signature="e#329840#329841#0" expanded="false" />
+                <element signature="e#329924#329925#0" expanded="false" />
+                <element signature="e#331876#331877#0" expanded="false" />
+                <element signature="e#331939#331940#0" expanded="false" />
+                <element signature="e#332073#332074#0" expanded="false" />
+                <element signature="e#332149#332150#0" expanded="false" />
+                <element signature="e#346282#346283#0" expanded="false" />
+                <element signature="e#346335#346336#0" expanded="false" />
+                <element signature="e#347798#347799#0" expanded="false" />
+                <element signature="e#347858#347859#0" expanded="false" />
+                <element signature="e#351837#351838#0" expanded="false" />
+                <element signature="e#351919#351920#0" expanded="false" />
+                <element signature="e#354081#354082#0" expanded="false" />
+                <element signature="e#354163#354164#0" expanded="false" />
+                <element signature="e#359940#359941#0" expanded="false" />
+                <element signature="e#360004#360005#0" expanded="false" />
+                <element signature="e#363103#363104#0" expanded="false" />
+                <element signature="e#363163#363164#0" expanded="false" />
+                <element signature="e#364580#364581#0" expanded="false" />
+                <element signature="e#364623#364624#0" expanded="false" />
+                <element signature="e#365688#365689#0" expanded="false" />
+                <element signature="e#365746#365747#0" expanded="false" />
+                <element signature="e#367122#367123#0" expanded="false" />
+                <element signature="e#367171#367172#0" expanded="false" />
+                <element signature="e#368370#368371#0" expanded="false" />
+                <element signature="e#368434#368435#0" expanded="false" />
+                <element signature="e#370849#370850#0" expanded="false" />
+                <element signature="e#370904#370905#0" expanded="false" />
+                <element signature="e#371870#371871#0" expanded="false" />
+                <element signature="e#371935#371936#0" expanded="false" />
+                <element signature="e#374371#374372#0" expanded="false" />
+                <element signature="e#374430#374431#0" expanded="false" />
+                <element signature="e#377882#377883#0" expanded="false" />
+                <element signature="e#377945#377946#0" expanded="false" />
+                <element signature="e#379998#379999#0" expanded="false" />
+                <element signature="e#380041#380042#0" expanded="false" />
+                <element signature="e#380991#380992#0" expanded="false" />
+                <element signature="e#381055#381056#0" expanded="false" />
+                <element signature="e#381877#381878#0" expanded="false" />
+                <element signature="e#381922#381923#0" expanded="false" />
+                <element signature="e#382819#382820#0" expanded="false" />
+                <element signature="e#382868#382869#0" expanded="false" />
+                <element signature="e#383829#383830#0" expanded="false" />
+                <element signature="e#383882#383883#0" expanded="false" />
+                <element signature="e#384908#384909#0" expanded="false" />
+                <element signature="e#384965#384966#0" expanded="false" />
+                <element signature="e#392361#392362#0" expanded="false" />
+                <element signature="e#392436#392437#0" expanded="false" />
+                <element signature="e#393876#393877#0" expanded="false" />
+                <element signature="e#393951#393952#0" expanded="false" />
+                <element signature="e#394021#394022#0" expanded="false" />
+                <element signature="e#394070#394071#0" expanded="false" />
+                <element signature="e#395696#395697#0" expanded="false" />
+                <element signature="e#395743#395744#0" expanded="false" />
+                <element signature="e#395813#395814#0" expanded="false" />
+                <element signature="e#395862#395863#0" expanded="false" />
+                <element signature="e#397740#397741#0" expanded="false" />
+                <element signature="e#397789#397790#0" expanded="false" />
+                <element signature="e#397865#397866#0" expanded="false" />
+                <element signature="e#397912#397913#0" expanded="false" />
+                <element signature="e#397982#397983#0" expanded="false" />
+                <element signature="e#398031#398032#0" expanded="false" />
+                <element signature="e#399131#399132#0" expanded="false" />
+                <element signature="e#399185#399186#0" expanded="false" />
+                <element signature="e#399255#399256#0" expanded="false" />
+                <element signature="e#399306#399307#0" expanded="false" />
+                <element signature="e#399367#399368#0" expanded="false" />
+                <element signature="e#399417#399418#0" expanded="false" />
+                <element signature="e#410754#410755#0" expanded="false" />
+                <element signature="e#410809#410810#0" expanded="false" />
+                <element signature="e#411694#411695#0" expanded="false" />
+                <element signature="e#411759#411760#0" expanded="false" />
+                <element signature="e#413941#413942#0" expanded="false" />
+                <element signature="e#413989#413990#0" expanded="false" />
+                <element signature="e#421602#421603#0" expanded="false" />
+                <element signature="e#421649#421650#0" expanded="false" />
+                <element signature="e#425493#425494#0" expanded="false" />
+                <element signature="e#425545#425546#0" expanded="false" />
+                <element signature="e#439320#439321#0" expanded="false" />
+                <element signature="e#439366#439367#0" expanded="false" />
+                <element signature="e#442618#442619#0" expanded="false" />
+                <element signature="e#442677#442678#0" expanded="false" />
+                <element signature="e#457400#457401#0" expanded="false" />
+                <element signature="e#457456#457457#0" expanded="false" />
+                <element signature="e#458985#458986#0" expanded="false" />
+                <element signature="e#459037#459038#0" expanded="false" />
+                <element signature="e#460647#460648#0" expanded="false" />
+                <element signature="e#460714#460715#0" expanded="false" />
+                <element signature="e#473022#473023#0" expanded="false" />
+                <element signature="e#473092#473093#0" expanded="false" />
+                <element signature="e#483118#483119#0" expanded="false" />
+                <element signature="e#483161#483162#0" expanded="false" />
+                <element signature="e#504984#504985#0" expanded="false" />
+                <element signature="e#505051#505052#0" expanded="false" />
+                <element signature="e#506066#506067#0" expanded="false" />
+                <element signature="e#506133#506134#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gradle-wrapper.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <file leaf-file-name="RxJavaObservableExecutionHookDefault.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/plugins/RxJavaObservableExecutionHookDefault.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
+              <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="e#970#971#0" expanded="false" />
+                <element signature="e#1001#1002#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -190,14 +426,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -205,14 +444,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="ReactiveCaffeine" />
+              <option name="name" value="ReactiveCaffiene" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="ReactiveCaffeine" />
+                <option name="name" value="ReactiveCaffiene" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -280,17 +519,17 @@
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'ReactiveCaffeine'. [incubating]" />
+                <option name="description" value="Displays the components produced by root project 'ReactiveCaffiene'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'ReactiveCaffeine'." />
+                <option name="description" value="Displays all dependencies declared in root project 'ReactiveCaffiene'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'ReactiveCaffeine'." />
+                <option name="description" value="Displays the insight into a specific dependency in root project 'ReactiveCaffiene'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
@@ -329,7 +568,7 @@
                 <option name="name" value="javadocJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'ReactiveCaffeine'. [incubating]" />
+                <option name="description" value="Displays the configuration model of root project 'ReactiveCaffiene'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
@@ -344,12 +583,12 @@
                 <option name="name" value="processTestResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'ReactiveCaffeine'." />
+                <option name="description" value="Displays the sub-projects of root project 'ReactiveCaffiene'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'ReactiveCaffeine'." />
+                <option name="description" value="Displays the properties of root project 'ReactiveCaffiene'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
@@ -373,7 +612,7 @@
                 <option name="name" value="sourcesJar" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'ReactiveCaffeine'." />
+                <option name="description" value="Displays the tasks runnable from root project 'ReactiveCaffiene'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
@@ -398,7 +637,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="2912053681525" />
+        <entry key="$PROJECT_DIR$" value="2912230931584" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -494,7 +733,7 @@
                   </entry>
                 </map>
               </option>
-              <option name="name" value="ReactiveCaffeine" />
+              <option name="name" value="ReactiveCaffiene" />
               <option name="projectBuildClasspath">
                 <list>
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.5-all/d3xh0kipe7wr2bvnx5sk0hao8/gradle-2.5/src/testing-native" />
@@ -638,15 +877,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/FluentObservableBuilder.java" />
         <option value="$PROJECT_DIR$/ReactiveCaffeine.iml" />
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rxc/ObservableBuilder.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/rxc/ObservableBuilderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rxc/events/SleepEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rxc/BaseObservableBuilder.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rxc/UnsafeObservable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rxc/Caffeine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rxc/ObservableBuilder.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/rxc/UnsafeObservableBuilderTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rxc/UnsafeObservableBuilder.java" />
       </list>
     </option>
   </component>
@@ -788,7 +1032,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>unused</id>
+            <id>Groovy</id>
           </State>
         </selected-state>
       </profile-state>
@@ -819,6 +1063,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -893,7 +1138,6 @@
       </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -902,7 +1146,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -916,6 +1160,9 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.rxc" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.rxc" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.rxc" />
     </key>
@@ -923,8 +1170,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DisposeBagTest">
-    <configuration default="false" name="ReactiveCaffeine [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Tests in 'ReactiveCaffiene'">
+    <configuration default="false" name="ReactiveCaffeine [bintrayUpload]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -935,19 +1182,19 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="buildDependents" />
+            <option value="bintrayUpload" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="false" name="DisposeBagTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration default="false" name="UnsafeObservableBuilderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests com.rxc.DisposeBagTest" />
+        <option name="scriptParameters" value="--tests com.rxc.UnsafeObservableBuilderTest" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -961,12 +1208,12 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="false" name="unsubscribeNotCalled_ifAlreadyUnsubscribed" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration default="false" name="start" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.rxc.DisposeBagTest.unsubscribeNotCalled_ifAlreadyUnsubscribed&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.rxc.UnsafeObservableBuilderTest.start&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -980,30 +1227,31 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="false" name="ReactiveCaffeine [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration default="false" name="test_unsafeness" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;com.rxc.UnsafeObservableBuilderTest.test_unsafeness&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value="cleanTest" />
+            <option value="test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="false" name="unsubcribesAll_evenWithExceptions" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration default="false" name="Tests in 'ReactiveCaffiene'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.rxc.DisposeBagTest.unsubcribesAll_evenWithExceptions&quot;" />
+        <option name="scriptParameters" value="--tests *" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -1451,19 +1699,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Gradle.build" />
       <item index="1" class="java.lang.String" itemvalue="Gradle.test" />
-      <item index="2" class="java.lang.String" itemvalue="Gradle.ReactiveCaffeine [buildDependents]" />
-      <item index="3" class="java.lang.String" itemvalue="Gradle.DisposeBagTest" />
-      <item index="4" class="java.lang.String" itemvalue="Gradle.unsubscribeNotCalled_ifAlreadyUnsubscribed" />
-      <item index="5" class="java.lang.String" itemvalue="Gradle.ReactiveCaffeine [clean]" />
-      <item index="6" class="java.lang.String" itemvalue="Gradle.unsubcribesAll_evenWithExceptions" />
+      <item index="2" class="java.lang.String" itemvalue="Gradle.ReactiveCaffeine [bintrayUpload]" />
+      <item index="3" class="java.lang.String" itemvalue="Gradle.UnsafeObservableBuilderTest" />
+      <item index="4" class="java.lang.String" itemvalue="Gradle.start" />
+      <item index="5" class="java.lang.String" itemvalue="Gradle.test_unsafeness" />
+      <item index="6" class="java.lang.String" itemvalue="Gradle.Tests in 'ReactiveCaffiene'" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.DisposeBagTest" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.unsubcribesAll_evenWithExceptions" />
-        <item index="2" class="java.lang.String" itemvalue="Gradle.unsubscribeNotCalled_ifAlreadyUnsubscribed" />
-        <item index="3" class="java.lang.String" itemvalue="Gradle.ReactiveCaffeine [clean]" />
-        <item index="4" class="java.lang.String" itemvalue="Gradle.ReactiveCaffeine [buildDependents]" />
+        <item index="0" class="java.lang.String" itemvalue="Gradle.Tests in 'ReactiveCaffiene'" />
+        <item index="1" class="java.lang.String" itemvalue="Gradle.UnsafeObservableBuilderTest" />
+        <item index="2" class="java.lang.String" itemvalue="Gradle.test_unsafeness" />
+        <item index="3" class="java.lang.String" itemvalue="Gradle.start" />
+        <item index="4" class="java.lang.String" itemvalue="Gradle.ReactiveCaffeine [bintrayUpload]" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -1489,7 +1737,9 @@
       <workItem from="1456363002972" duration="59000" />
       <workItem from="1456363150301" duration="922000" />
       <workItem from="1456367543121" duration="156000" />
-      <workItem from="1456368240226" duration="4812000" />
+      <workItem from="1456368240226" duration="18453000" />
+      <workItem from="1456769305601" duration="4379000" />
+      <workItem from="1457716922458" duration="1003000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit, Implemented ObservableEventChainBuilder">
       <created>1455686022492</created>
@@ -1563,43 +1813,55 @@
       <option name="project" value="LOCAL" />
       <updated>1456371896684</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added exception handling in DisposeBag so that it's safe to use in try catch scenarios">
+      <created>1456373056481</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1456373056481</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Release version 0.0.5">
+      <created>1456373326839</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1456373326839</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DisposeBagTest - 2016.02.24 at 20h 50m 11s.xml">
-      <configuration name="DisposeBagTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="Tests_in__ReactiveCaffiene_ - 2016.03.11 at 11h 39m 54s.xml">
+      <configuration name="Tests in 'ReactiveCaffiene'" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="DisposeBagTest - 2016.02.24 at 20h 53m 08s.xml">
-      <configuration name="DisposeBagTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="UnsafeObservableBuilderTest - 2016.02.29 at 13h 11m 48s.xml">
+      <configuration name="UnsafeObservableBuilderTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="DisposeBagTest - 2016.02.24 at 21h 53m 38s.xml">
-      <configuration name="DisposeBagTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="UnsafeObservableBuilderTest - 2016.02.29 at 13h 13m 37s.xml">
+      <configuration name="UnsafeObservableBuilderTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="DisposeBagTest - 2016.02.24 at 21h 54m 01s.xml">
-      <configuration name="DisposeBagTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="UnsafeObservableBuilderTest - 2016.03.11 at 11h 22m 44s.xml">
+      <configuration name="UnsafeObservableBuilderTest" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="DisposeBagTest - 2016.02.24 at 21h 54m 16s.xml">
-      <configuration name="DisposeBagTest" configurationId="GradleRunConfiguration" />
+    <history-entry file="start - 2016.02.25 at 23h 41m 12s.xml">
+      <configuration name="start" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="unsubcribesAll_evenWithExceptions - 2016.02.24 at 21h 50m 28s.xml">
-      <configuration name="unsubcribesAll_evenWithExceptions" configurationId="GradleRunConfiguration" />
+    <history-entry file="start - 2016.02.25 at 23h 42m 32s.xml">
+      <configuration name="start" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="unsubcribesAll_evenWithExceptions - 2016.02.24 at 21h 50m 57s.xml">
-      <configuration name="unsubcribesAll_evenWithExceptions" configurationId="GradleRunConfiguration" />
+    <history-entry file="start - 2016.02.26 at 21h 44m 09s.xml">
+      <configuration name="start" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="unsubcribesAll_evenWithExceptions - 2016.02.24 at 21h 53m 26s.xml">
-      <configuration name="unsubcribesAll_evenWithExceptions" configurationId="GradleRunConfiguration" />
+    <history-entry file="test_unsafeness - 2016.02.29 at 13h 07m 20s.xml">
+      <configuration name="test_unsafeness" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="unsubscribeNotCalled_ifAlreadyUnsubscribed - 2016.02.24 at 20h 46m 24s.xml">
-      <configuration name="unsubscribeNotCalled_ifAlreadyUnsubscribed" configurationId="GradleRunConfiguration" />
+    <history-entry file="test_unsafeness - 2016.02.29 at 13h 08m 15s.xml">
+      <configuration name="test_unsafeness" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="unsubscribeNotCalled_ifAlreadyUnsubscribed - 2016.02.24 at 20h 48m 00s.xml">
-      <configuration name="unsubscribeNotCalled_ifAlreadyUnsubscribed" configurationId="GradleRunConfiguration" />
+    <history-entry file="test_unsafeness - 2016.02.29 at 13h 08m 58s.xml">
+      <configuration name="test_unsafeness" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42698000" />
+    <option name="totallyTimeSpent" value="61721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1602" height="900" extended-state="6" />
@@ -1610,15 +1872,14 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3992298" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22079588" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45827985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22329472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23423423" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23423423" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24967825" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1626,6 +1887,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3992298" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
@@ -1637,20 +1899,20 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3992298" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36456996" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45827985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22329472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23423423" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24967825" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3992298" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1678,19 +1940,13 @@
     <MESSAGE value="Implemented DisposeBag" />
     <MESSAGE value="Added javadoc for DisposeBag" />
     <MESSAGE value="Added exception handling in DisposeBag so that it's safe to use in try catch scenarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added exception handling in DisposeBag so that it's safe to use in try catch scenarios" />
+    <MESSAGE value="Release version 0.0.5" />
+    <MESSAGE value="Finalized api schema for observable builders, changed builders to use actions, removed Event api, and migrated to Java 7, and before you ask, yes this commit is too big" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized api schema for observable builders, changed builders to use actions, removed Event api, and migrated to Java 7, and before you ask, yes this commit is too big" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java</url>
-          <line>102</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1699,52 +1955,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/observers/SerializedObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/observers/SerializedSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/observers/Subscribers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/observers/TestObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/plugins/RxJavaErrorHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/plugins/RxJavaObservableExecutionHook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/plugins/RxJavaObservableExecutionHookDefault.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1846,24 +2060,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Notification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8026667">
-          <caret line="164" column="16" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/observables/GroupedObservable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24">
           <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Observable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45866665">
-          <caret line="7231" column="19" selection-start-line="7231" selection-start-column="19" selection-end-line="7231" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1885,7 +2085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1893,7 +2092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1904,29 +2102,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Subscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#4153#4154#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1934,7 +2113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1942,7 +2120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1950,7 +2127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1958,7 +2134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1966,7 +2141,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1974,7 +2148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1982,14 +2155,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/exceptions/Exceptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="162" column="23" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReactiveCaffeine.iml">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/898f9ab61e2a23afd615f0b0389478bec86f49f9/rxjava-1.0.14.jar!/rx/observers/SafeSubscriber.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.0">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.6.0-openjdk-amd64/jre/lib/rt.jar!/javax/management/Notification.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Notification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="164" column="16" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1998,115 +2206,401 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/ActionEvent.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/internal/operators/OperatorObserveOn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Subscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="29" />
           <folding>
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#289#290#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/CompletionEvent.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/plugins/RxJavaObservableExecutionHook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
           <folding>
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#219#220#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2285#2286#0" expanded="false" />
+            <element signature="e#2309#2310#0" expanded="false" />
+            <element signature="e#5126#5127#0" expanded="false" />
+            <element signature="e#5153#5154#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/ErrorEvent.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/plugins/RxJavaObservableExecutionHookDefault.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+          <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
           <folding>
-            <element signature="e#178#179#0" expanded="true" />
-            <element signature="e#212#213#0" expanded="true" />
-            <element signature="e#246#247#0" expanded="true" />
-            <element signature="e#274#275#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#970#971#0" expanded="false" />
+            <element signature="e#1001#1002#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/rxc/ObservableBuilderTest.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Observable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+          <caret line="7704" column="51" selection-start-line="7704" selection-start-column="51" selection-end-line="7704" selection-end-column="51" />
           <folding>
-            <element signature="e#2529#2775#0" expanded="true" />
-            <element signature="e#2774#2775#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2147#2148#0" expanded="false" />
+            <element signature="e#2183#2184#0" expanded="false" />
+            <element signature="e#3950#3951#0" expanded="false" />
+            <element signature="e#4008#4009#0" expanded="false" />
+            <element signature="e#10940#10941#0" expanded="false" />
+            <element signature="e#11008#11009#0" expanded="false" />
+            <element signature="e#53820#53821#0" expanded="false" />
+            <element signature="e#53876#53877#0" expanded="false" />
+            <element signature="e#54873#54874#0" expanded="false" />
+            <element signature="e#54932#54933#0" expanded="false" />
+            <element signature="e#55963#55964#0" expanded="false" />
+            <element signature="e#56019#56020#0" expanded="false" />
+            <element signature="e#62422#62423#0" expanded="false" />
+            <element signature="e#62471#62472#0" expanded="false" />
+            <element signature="e#69049#69050#0" expanded="false" />
+            <element signature="e#69113#69114#0" expanded="false" />
+            <element signature="e#69994#69995#0" expanded="false" />
+            <element signature="e#70044#70045#0" expanded="false" />
+            <element signature="e#70975#70976#0" expanded="false" />
+            <element signature="e#71029#71030#0" expanded="false" />
+            <element signature="e#72012#72013#0" expanded="false" />
+            <element signature="e#72070#72071#0" expanded="false" />
+            <element signature="e#97624#97625#0" expanded="false" />
+            <element signature="e#97669#97670#0" expanded="false" />
+            <element signature="e#119467#119468#0" expanded="false" />
+            <element signature="e#119500#119501#0" expanded="false" />
+            <element signature="e#120367#120368#0" expanded="false" />
+            <element signature="e#120416#120417#0" expanded="false" />
+            <element signature="e#161817#161818#0" expanded="false" />
+            <element signature="e#161853#161854#0" expanded="false" />
+            <element signature="e#162459#162460#0" expanded="false" />
+            <element signature="e#162522#162523#0" expanded="false" />
+            <element signature="e#165520#165521#0" expanded="false" />
+            <element signature="e#165563#165564#0" expanded="false" />
+            <element signature="e#181953#181954#0" expanded="false" />
+            <element signature="e#181996#181997#0" expanded="false" />
+            <element signature="e#185586#185587#0" expanded="false" />
+            <element signature="e#185636#185637#0" expanded="false" />
+            <element signature="e#187661#187662#0" expanded="false" />
+            <element signature="e#187725#187726#0" expanded="false" />
+            <element signature="e#188684#188685#0" expanded="false" />
+            <element signature="e#188742#188743#0" expanded="false" />
+            <element signature="e#192970#192971#0" expanded="false" />
+            <element signature="e#193009#193010#0" expanded="false" />
+            <element signature="e#194086#194087#0" expanded="false" />
+            <element signature="e#194174#194175#0" expanded="false" />
+            <element signature="e#195134#195135#0" expanded="false" />
+            <element signature="e#195188#195189#0" expanded="false" />
+            <element signature="e#195429#195430#0" expanded="false" />
+            <element signature="e#195477#195478#0" expanded="false" />
+            <element signature="e#196512#196513#0" expanded="false" />
+            <element signature="e#196571#196572#0" expanded="false" />
+            <element signature="e#196794#196795#0" expanded="false" />
+            <element signature="e#196842#196843#0" expanded="false" />
+            <element signature="e#209677#209678#0" expanded="false" />
+            <element signature="e#209744#209745#0" expanded="false" />
+            <element signature="e#215300#215301#0" expanded="false" />
+            <element signature="e#215361#215362#0" expanded="false" />
+            <element signature="e#216096#216097#0" expanded="false" />
+            <element signature="e#216156#216157#0" expanded="false" />
+            <element signature="e#218034#218035#0" expanded="false" />
+            <element signature="e#218106#218107#0" expanded="false" />
+            <element signature="e#220239#220240#0" expanded="false" />
+            <element signature="e#220289#220290#0" expanded="false" />
+            <element signature="e#221476#221477#0" expanded="false" />
+            <element signature="e#221561#221562#0" expanded="false" />
+            <element signature="e#221637#221638#0" expanded="false" />
+            <element signature="e#221719#221720#0" expanded="false" />
+            <element signature="e#221786#221787#0" expanded="false" />
+            <element signature="e#221867#221868#0" expanded="false" />
+            <element signature="e#223803#223804#0" expanded="false" />
+            <element signature="e#223850#223851#0" expanded="false" />
+            <element signature="e#225098#225099#0" expanded="false" />
+            <element signature="e#225147#225148#0" expanded="false" />
+            <element signature="e#228524#228525#0" expanded="false" />
+            <element signature="e#228574#228575#0" expanded="false" />
+            <element signature="e#228650#228651#0" expanded="false" />
+            <element signature="e#228700#228701#0" expanded="false" />
+            <element signature="e#231191#231192#0" expanded="false" />
+            <element signature="e#231251#231252#0" expanded="false" />
+            <element signature="e#235711#235712#0" expanded="false" />
+            <element signature="e#235770#235771#0" expanded="false" />
+            <element signature="e#236631#236632#0" expanded="false" />
+            <element signature="e#236670#236671#0" expanded="false" />
+            <element signature="e#237748#237749#0" expanded="false" />
+            <element signature="e#237800#237801#0" expanded="false" />
+            <element signature="e#238800#238801#0" expanded="false" />
+            <element signature="e#238860#238861#0" expanded="false" />
+            <element signature="e#254695#254696#0" expanded="false" />
+            <element signature="e#254728#254729#0" expanded="false" />
+            <element signature="e#263121#263122#0" expanded="false" />
+            <element signature="e#263187#263188#0" expanded="false" />
+            <element signature="e#264027#264028#0" expanded="false" />
+            <element signature="e#264099#264100#0" expanded="false" />
+            <element signature="e#266826#266827#0" expanded="false" />
+            <element signature="e#266869#266870#0" expanded="false" />
+            <element signature="e#269028#269029#0" expanded="false" />
+            <element signature="e#269092#269093#0" expanded="false" />
+            <element signature="e#271678#271679#0" expanded="false" />
+            <element signature="e#271712#271713#0" expanded="false" />
+            <element signature="e#272620#272621#0" expanded="false" />
+            <element signature="e#272676#272677#0" expanded="false" />
+            <element signature="e#273844#273845#0" expanded="false" />
+            <element signature="e#273906#273907#0" expanded="false" />
+            <element signature="e#274832#274833#0" expanded="false" />
+            <element signature="e#274870#274871#0" expanded="false" />
+            <element signature="e#277035#277036#0" expanded="false" />
+            <element signature="e#277093#277094#0" expanded="false" />
+            <element signature="e#277927#277928#0" expanded="false" />
+            <element signature="e#277999#278000#0" expanded="false" />
+            <element signature="e#283020#283021#0" expanded="false" />
+            <element signature="e#283089#283090#0" expanded="false" />
+            <element signature="e#287412#287413#0" expanded="false" />
+            <element signature="e#287490#287491#0" expanded="false" />
+            <element signature="e#288791#288792#0" expanded="false" />
+            <element signature="e#288862#288863#0" expanded="false" />
+            <element signature="e#298140#298141#0" expanded="false" />
+            <element signature="e#298191#298192#0" expanded="false" />
+            <element signature="e#304792#304793#0" expanded="false" />
+            <element signature="e#304846#304847#0" expanded="false" />
+            <element signature="e#305665#305666#0" expanded="false" />
+            <element signature="e#305730#305731#0" expanded="false" />
+            <element signature="e#306762#306763#0" expanded="false" />
+            <element signature="e#306823#306824#0" expanded="false" />
+            <element signature="e#309982#309983#0" expanded="false" />
+            <element signature="e#310041#310042#0" expanded="false" />
+            <element signature="e#312086#312087#0" expanded="false" />
+            <element signature="e#312145#312146#0" expanded="false" />
+            <element signature="e#313685#313686#0" expanded="false" />
+            <element signature="e#313735#313736#0" expanded="false" />
+            <element signature="e#315528#315529#0" expanded="false" />
+            <element signature="e#315591#315592#0" expanded="false" />
+            <element signature="e#317691#317692#0" expanded="false" />
+            <element signature="e#317764#317765#0" expanded="false" />
+            <element signature="e#322855#322856#0" expanded="false" />
+            <element signature="e#322951#322952#0" expanded="false" />
+            <element signature="e#325150#325151#0" expanded="false" />
+            <element signature="e#325223#325224#0" expanded="false" />
+            <element signature="e#325357#325358#0" expanded="false" />
+            <element signature="e#325433#325434#0" expanded="false" />
+            <element signature="e#329840#329841#0" expanded="false" />
+            <element signature="e#329924#329925#0" expanded="false" />
+            <element signature="e#331876#331877#0" expanded="false" />
+            <element signature="e#331939#331940#0" expanded="false" />
+            <element signature="e#332073#332074#0" expanded="false" />
+            <element signature="e#332149#332150#0" expanded="false" />
+            <element signature="e#346282#346283#0" expanded="false" />
+            <element signature="e#346335#346336#0" expanded="false" />
+            <element signature="e#347798#347799#0" expanded="false" />
+            <element signature="e#347858#347859#0" expanded="false" />
+            <element signature="e#351837#351838#0" expanded="false" />
+            <element signature="e#351919#351920#0" expanded="false" />
+            <element signature="e#354081#354082#0" expanded="false" />
+            <element signature="e#354163#354164#0" expanded="false" />
+            <element signature="e#359940#359941#0" expanded="false" />
+            <element signature="e#360004#360005#0" expanded="false" />
+            <element signature="e#363103#363104#0" expanded="false" />
+            <element signature="e#363163#363164#0" expanded="false" />
+            <element signature="e#364580#364581#0" expanded="false" />
+            <element signature="e#364623#364624#0" expanded="false" />
+            <element signature="e#365688#365689#0" expanded="false" />
+            <element signature="e#365746#365747#0" expanded="false" />
+            <element signature="e#367122#367123#0" expanded="false" />
+            <element signature="e#367171#367172#0" expanded="false" />
+            <element signature="e#368370#368371#0" expanded="false" />
+            <element signature="e#368434#368435#0" expanded="false" />
+            <element signature="e#370849#370850#0" expanded="false" />
+            <element signature="e#370904#370905#0" expanded="false" />
+            <element signature="e#371870#371871#0" expanded="false" />
+            <element signature="e#371935#371936#0" expanded="false" />
+            <element signature="e#374371#374372#0" expanded="false" />
+            <element signature="e#374430#374431#0" expanded="false" />
+            <element signature="e#377882#377883#0" expanded="false" />
+            <element signature="e#377945#377946#0" expanded="false" />
+            <element signature="e#379998#379999#0" expanded="false" />
+            <element signature="e#380041#380042#0" expanded="false" />
+            <element signature="e#380991#380992#0" expanded="false" />
+            <element signature="e#381055#381056#0" expanded="false" />
+            <element signature="e#381877#381878#0" expanded="false" />
+            <element signature="e#381922#381923#0" expanded="false" />
+            <element signature="e#382819#382820#0" expanded="false" />
+            <element signature="e#382868#382869#0" expanded="false" />
+            <element signature="e#383829#383830#0" expanded="false" />
+            <element signature="e#383882#383883#0" expanded="false" />
+            <element signature="e#384908#384909#0" expanded="false" />
+            <element signature="e#384965#384966#0" expanded="false" />
+            <element signature="e#392361#392362#0" expanded="false" />
+            <element signature="e#392436#392437#0" expanded="false" />
+            <element signature="e#393876#393877#0" expanded="false" />
+            <element signature="e#393951#393952#0" expanded="false" />
+            <element signature="e#394021#394022#0" expanded="false" />
+            <element signature="e#394070#394071#0" expanded="false" />
+            <element signature="e#395696#395697#0" expanded="false" />
+            <element signature="e#395743#395744#0" expanded="false" />
+            <element signature="e#395813#395814#0" expanded="false" />
+            <element signature="e#395862#395863#0" expanded="false" />
+            <element signature="e#397740#397741#0" expanded="false" />
+            <element signature="e#397789#397790#0" expanded="false" />
+            <element signature="e#397865#397866#0" expanded="false" />
+            <element signature="e#397912#397913#0" expanded="false" />
+            <element signature="e#397982#397983#0" expanded="false" />
+            <element signature="e#398031#398032#0" expanded="false" />
+            <element signature="e#399131#399132#0" expanded="false" />
+            <element signature="e#399185#399186#0" expanded="false" />
+            <element signature="e#399255#399256#0" expanded="false" />
+            <element signature="e#399306#399307#0" expanded="false" />
+            <element signature="e#399367#399368#0" expanded="false" />
+            <element signature="e#399417#399418#0" expanded="false" />
+            <element signature="e#410754#410755#0" expanded="false" />
+            <element signature="e#410809#410810#0" expanded="false" />
+            <element signature="e#411694#411695#0" expanded="false" />
+            <element signature="e#411759#411760#0" expanded="false" />
+            <element signature="e#413941#413942#0" expanded="false" />
+            <element signature="e#413989#413990#0" expanded="false" />
+            <element signature="e#421602#421603#0" expanded="false" />
+            <element signature="e#421649#421650#0" expanded="false" />
+            <element signature="e#425493#425494#0" expanded="false" />
+            <element signature="e#425545#425546#0" expanded="false" />
+            <element signature="e#439320#439321#0" expanded="false" />
+            <element signature="e#439366#439367#0" expanded="false" />
+            <element signature="e#442618#442619#0" expanded="false" />
+            <element signature="e#442677#442678#0" expanded="false" />
+            <element signature="e#457400#457401#0" expanded="false" />
+            <element signature="e#457456#457457#0" expanded="false" />
+            <element signature="e#458985#458986#0" expanded="false" />
+            <element signature="e#459037#459038#0" expanded="false" />
+            <element signature="e#460647#460648#0" expanded="false" />
+            <element signature="e#460714#460715#0" expanded="false" />
+            <element signature="e#473022#473023#0" expanded="false" />
+            <element signature="e#473092#473093#0" expanded="false" />
+            <element signature="e#483118#483119#0" expanded="false" />
+            <element signature="e#483161#483162#0" expanded="false" />
+            <element signature="e#504984#504985#0" expanded="false" />
+            <element signature="e#505051#505052#0" expanded="false" />
+            <element signature="e#506066#506067#0" expanded="false" />
+            <element signature="e#506133#506134#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/Subscriber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/ObservableBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="57" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2799#2800#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#1799#1800#0" expanded="false" />
+            <element signature="e#1832#1833#0" expanded="false" />
+            <element signature="e#2202#2203#0" expanded="false" />
+            <element signature="e#2240#2241#0" expanded="false" />
+            <element signature="e#3683#3684#0" expanded="false" />
+            <element signature="e#3719#3720#0" expanded="false" />
+            <element signature="e#3772#3773#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
+            <element signature="e#4100#4101#0" expanded="false" />
+            <element signature="e#4153#4154#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/events/SleepEvent.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/observers/TestObserver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="16" />
           <folding>
-            <element signature="e#176#177#0" expanded="true" />
-            <element signature="e#218#219#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/exceptions/Exceptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="23" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="66" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1213#1242#0" expanded="true" />
-            <element signature="e#1329#1343#0" expanded="true" />
-            <element signature="e#2729#2740#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="false" />
+            <element signature="e#1295#1296#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/rxc/DisposeBagTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6713996">
-          <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="115" selection-end-column="58" />
+          <folding>
+            <element signature="e#901#915#0" expanded="false" />
+            <element signature="e#1439#1453#0" expanded="false" />
+            <element signature="e#1940#1954#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/e7bad33560b6c163b25073e85e3b2f70948da2bc/rxjava-1.0.14-sources.jar!/rx/observers/TestSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031141868">
+          <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+          <folding>
+            <element signature="e#3093#3094#0" expanded="false" />
+            <element signature="e#3117#3118#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReactiveCaffiene.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/rxc/UnsafeObservableBuilderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="156" column="69" selection-start-line="156" selection-start-column="69" selection-end-line="156" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#901#915#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/DisposeBag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="83" selection-start-line="27" selection-start-column="83" selection-end-line="27" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rxc/UnsafeObservableBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69776875">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2163,7 +2657,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ReactiveCaffeine</last-edited>
+          <last-edited>ReactiveCaffiene</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

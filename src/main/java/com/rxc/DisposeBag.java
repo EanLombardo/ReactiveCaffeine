@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * A simple system for tearing down subscriptions in a memory efficient and re-usable manner
  *
- * DisposeBag allows you to add as many subscriptions as you like, then you can call disposeAll() to unsubscribe
+ * DisposeBag allows you to add as many subscriptions as you like, perform you can call disposeAll() to unsubscribe
  * all added subscriptions. This is necessary for many application structures, especially UI applications
  * in order to destroy all active subscriptions before part of a system dies.
  *
@@ -25,9 +25,9 @@ import java.util.List;
  * DisposeBag also cleans up any internal dead references on every interaction, preventing it from bloating in size
  */
 public class DisposeBag {
-    private final List<WeakReference<Subscription>> subscriptions = new LinkedList<WeakReference<Subscription>>();
+    private final List<WeakReference<Subscription>> subscriptions = new LinkedList<>();
 
-    private final ReferenceQueue<Subscription> referenceQueue = new ReferenceQueue<Subscription>();
+    private final ReferenceQueue<Subscription> referenceQueue = new ReferenceQueue<>();
 
     /**
      * Adds a subscription to the DisposeBag
@@ -35,7 +35,7 @@ public class DisposeBag {
      */
     public void add(final Subscription subscription){
         synchronized (referenceQueue) {
-            subscriptions.add(new WeakReference<Subscription>(subscription, referenceQueue));
+            subscriptions.add(new WeakReference<>(subscription, referenceQueue));
         }
 
         cleanupReferences();
@@ -48,7 +48,7 @@ public class DisposeBag {
     public void addAll(final Iterable<Subscription> subscriptions){
         synchronized (referenceQueue) {
             for (final Subscription subscription : subscriptions) {
-                this.subscriptions.add(new WeakReference<Subscription>(subscription, referenceQueue));
+                this.subscriptions.add(new WeakReference<>(subscription, referenceQueue));
             }
         }
 
@@ -64,7 +64,7 @@ public class DisposeBag {
      * that contains all throws at the end of the disposal process
      */
     public void disposeAll(){
-        final List<Throwable> errors = new LinkedList<Throwable>();
+        final List<Throwable> errors = new LinkedList<>();
         synchronized (referenceQueue) {
             for (final WeakReference<Subscription> ref : subscriptions) {
                 try {
