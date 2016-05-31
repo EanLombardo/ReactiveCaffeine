@@ -1,4 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
+### Intellij
+*.iws
+workspace.xml
+tasks.xml
+
 ### Gradle template
 .gradle
 build/
