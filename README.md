@@ -1,5 +1,5 @@
 # ReactiveCaffeine
-[![Build Status](https://travis-ci.org/EanLombardo/ReactiveCaffeine.svg?branch=master)](https://travis-ci.org/EanLombardo/ReactiveCaffeine)[ ![Download](https://api.bintray.com/packages/eanlombardo/maven/ReactiveCaffeineTesting/images/download.svg) ](https://bintray.com/eanlombardo/maven/ReactiveCaffeineTesting/_latestVersion)
+[![Build Status](https://travis-ci.org/EanLombardo/ReactiveCaffeine.svg?branch=master)](https://travis-ci.org/EanLombardo/ReactiveCaffeine)[ ![Download](https://api.bintray.com/packages/eanlombardo/maven/ReactiveCaffeine/images/download.svg) ](https://bintray.com/eanlombardo/maven/ReactiveCaffeine/_latestVersion)
 
 ReactiveCaffeine is a library that contains all sorts of things to make RXJava easier to use.
 
