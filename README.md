@@ -3,6 +3,8 @@
 
 ReactiveCaffeine is a library that contains all sorts of things to make RXJava easier to use.
 
+ReactiveCaffeine is code meant for production purposes, for tests you should take a look at [ReactiveCaffeineTesting](https://github.com/EanLombardo/ReactiveCaffeineTesting)
+
 ## Features
 * DisposeBag - [Javadoc](http://eanlombardo.github.io/ReactiveCaffeine/com/rxc/DisposeBag.html) - [Wiki](https://github.com/EanLombardo/ReactiveCaffeine/wiki/DisposeBag)
   * DisposeBag makes handling unsubscription of groups of Subscriptions easy. It allows you to add all of the Subscriptions and dispose of all of them easily. DisposeBag is re-usable and only holds on to subscriptions via weak references so you never have to worry about large subscribers living on and taking up valuable memory.
