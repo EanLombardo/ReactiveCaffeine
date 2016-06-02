@@ -5,6 +5,7 @@ buildscript {
 
     dependencies {
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1+"
+        classpath 'org.ajoberstar:gradle-git:1.4.2'
     }
 }
 
@@ -22,6 +23,7 @@ apply plugin: 'java'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
+apply plugin: 'org.ajoberstar.github-pages'
 
 sourceCompatibility = 1.7
 
@@ -87,4 +89,11 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives sourcesJar
     archives javadocJar
+}
+
+githubPages {
+    repoUri = 'git@github.com:EanLombardo/ReactiveCaffeine.git'
+    pages {
+        from javadoc
+    }
 }
